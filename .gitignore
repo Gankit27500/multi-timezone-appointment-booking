@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node/Vite
+node_modules/
+dist/
+.vite/
+
+# Logs and local runtime output
+*.log
+backend/booking.db
+work/
+
+# Environment
+.env
+.env.*
+
+# OS/editor
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

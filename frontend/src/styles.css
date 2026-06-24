@@ -1,0 +1,837 @@
+:root {
+  color: #172026;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f6f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.loading {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.login-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.login-panel {
+  align-content: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.92)),
+    url("/images/login-schedule-bg.png") right bottom / 520px auto no-repeat;
+  border-right: 1px solid #dce3df;
+  display: grid;
+  gap: 26px;
+  padding: 42px;
+}
+
+.login-brand {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.login-brand svg,
+.login-showcase svg {
+  color: #1f6f64;
+}
+
+.login-brand p,
+.login-showcase p {
+  color: #64726e;
+  font-size: 14px;
+}
+
+.login-brand h1 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin-top: 4px;
+}
+
+.login-form {
+  display: grid;
+  gap: 15px;
+}
+
+.auth-error {
+  background: #fff0ed;
+  border: 1px solid #edc6be;
+  border-radius: 6px;
+  color: #98422f;
+  font-size: 13px;
+  padding: 10px;
+}
+
+.demo-credentials {
+  background: #f7faf9;
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+}
+
+.demo-credentials span {
+  color: #64726e;
+  font-size: 12px;
+}
+
+.login-showcase {
+  align-content: center;
+  background:
+    linear-gradient(90deg, rgba(244, 246, 244, 0.9) 0%, rgba(232, 241, 239, 0.62) 42%, rgba(15, 42, 49, 0.2) 100%),
+    url("/images/login-schedule-bg.png") center / cover no-repeat;
+  display: grid;
+  padding: 56px;
+}
+
+.login-showcase h2 {
+  font-size: 42px;
+  line-height: 1.08;
+  margin: 12px 0;
+  max-width: 720px;
+}
+
+.login-showcase p {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 650px;
+}
+
+.shell {
+  background:
+    radial-gradient(circle at top left, rgba(31, 111, 100, 0.12), transparent 34rem),
+    linear-gradient(180deg, rgba(244, 246, 244, 0.78), rgba(244, 246, 244, 0.9) 42%, rgba(244, 246, 244, 0.96)),
+    url("/images/login-schedule-bg.png") center / cover fixed no-repeat;
+  min-height: 100vh;
+  padding: 22px;
+}
+
+.admin-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 18px;
+  max-width: 1480px;
+}
+
+.admin-header p {
+  color: #64726e;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.admin-header h1 {
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.admin-user-card {
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 34px minmax(120px, 1fr) 40px;
+  min-width: 286px;
+  padding: 10px;
+  box-shadow: 0 10px 24px rgba(23, 32, 38, 0.08);
+}
+
+.admin-user-card svg {
+  color: #1f6f64;
+}
+
+.admin-user-card strong,
+.admin-user-card span {
+  display: block;
+}
+
+.admin-user-card span {
+  color: #64726e;
+  font-size: 12px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-areas:
+    "calendar config"
+    "calendar bookings";
+  grid-template-columns: minmax(0, 1fr) 390px;
+  grid-template-rows: auto 1fr;
+  gap: 18px;
+  margin: 0 auto;
+  max-width: 1480px;
+  min-height: calc(100vh - 120px);
+}
+
+.appointments-workspace {
+  grid-template-areas: "calendar bookings";
+  grid-template-columns: minmax(0, 1fr) 390px;
+  grid-template-rows: 1fr;
+}
+
+.setup-page {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
+  margin: 0 auto;
+  max-width: 1380px;
+  min-height: calc(100vh - 120px);
+}
+
+.setup-config {
+  align-self: start;
+  grid-area: auto;
+  order: 2;
+}
+
+.setup-preview {
+  align-content: center;
+  background:
+    linear-gradient(90deg, rgba(244, 246, 244, 0.94), rgba(232, 241, 239, 0.72)),
+    url("/images/login-schedule-bg.png") center / cover no-repeat;
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  display: grid;
+  gap: 22px;
+  min-height: 540px;
+  padding: 42px;
+  box-shadow: 0 12px 28px rgba(23, 32, 38, 0.08);
+  order: 1;
+}
+
+.setup-preview svg {
+  color: #1f6f64;
+}
+
+.setup-preview h2 {
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 12px 0;
+}
+
+.setup-preview p {
+  color: #52615d;
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+.setup-steps {
+  display: grid;
+  gap: 10px;
+  max-width: 430px;
+}
+
+.setup-steps span {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 14px;
+}
+
+.config-panel,
+.appointments-panel,
+.calendar-area {
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(23, 32, 38, 0.08);
+}
+
+.config-panel,
+.appointments-panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.config-panel {
+  grid-area: config;
+}
+
+.setup-page > .setup-config {
+  grid-area: auto;
+}
+
+.appointments-panel {
+  grid-area: bookings;
+}
+
+.panel-title {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.user-card {
+  align-items: center;
+  background: #f7faf9;
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 34px 1fr 40px;
+  margin-bottom: 18px;
+  padding: 12px;
+}
+
+.user-card svg {
+  color: #1f6f64;
+}
+
+.user-card strong,
+.user-card span {
+  display: block;
+}
+
+.user-card span {
+  color: #64726e;
+  font-size: 12px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-size: 20px;
+}
+
+.config-form,
+.appointment-list {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  color: #52615d;
+  display: grid;
+  font-size: 13px;
+  gap: 7px;
+}
+
+input,
+select {
+  background: #fbfcfb;
+  border: 1px solid #cbd6d1;
+  border-radius: 6px;
+  color: #172026;
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.field-row,
+.holiday-editor {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.holiday-editor {
+  grid-template-columns: 1fr 1fr 42px;
+}
+
+.weekday-group {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday-group button {
+  background: #eef3f1;
+  border: 1px solid #cbd6d1;
+  border-radius: 6px;
+  min-height: 38px;
+}
+
+.weekday-group .selected {
+  background: #1f6f64;
+  border-color: #1f6f64;
+  color: #ffffff;
+}
+
+.holiday-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.holiday-list span {
+  align-items: center;
+  background: #fff2df;
+  border: 1px solid #ead0ab;
+  border-radius: 6px;
+  display: inline-flex;
+  font-size: 12px;
+  gap: 6px;
+  padding: 6px 8px;
+}
+
+.holiday-list button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  display: inline-flex;
+  padding: 0;
+}
+
+.primary,
+.icon-button,
+.secondary {
+  align-items: center;
+  border: 0;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.primary {
+  background: #1f6f64;
+  border-radius: 6px;
+  color: #ffffff;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 14px;
+  width: 100%;
+}
+
+.icon-button {
+  background: #edf2f1;
+  border-radius: 6px;
+  color: #172026;
+  height: 40px;
+  flex: 0 0 auto;
+  width: 40px;
+}
+
+.secondary {
+  background: #edf2f1;
+  border-radius: 6px;
+  color: #172026;
+  min-height: 40px;
+  padding: 10px 12px;
+}
+
+.calendar-area {
+  display: grid;
+  grid-area: calendar;
+  grid-template-rows: auto auto auto 1fr;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.calendar-header {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid #dce3df;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.calendar-header p {
+  color: #64726e;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+}
+
+.notice {
+  background: #e8f3ff;
+  border-bottom: 1px solid #c9def1;
+  color: #244a6b;
+  padding: 10px 18px;
+}
+
+.insight-strip {
+  border-bottom: 1px solid #dce3df;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(4, minmax(130px, 1fr));
+  overflow: auto;
+}
+
+.insight {
+  align-content: center;
+  background: rgba(251, 252, 251, 0.86);
+  display: grid;
+  gap: 5px;
+  min-height: 88px;
+  padding: 13px 16px;
+}
+
+.insight svg {
+  color: #1f6f64;
+}
+
+.insight span {
+  color: #64726e;
+  font-size: 12px;
+}
+
+.insight strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.calendar-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(7, minmax(130px, 1fr));
+  overflow: auto;
+}
+
+.day-column {
+  background: rgba(245, 250, 249, 0.96);
+  min-height: 620px;
+  padding: 12px;
+}
+
+.day-column:nth-child(1) {
+  background: rgba(232, 243, 240, 0.96);
+}
+
+.day-column:nth-child(2) {
+  background: rgba(235, 242, 252, 0.96);
+}
+
+.day-column:nth-child(3) {
+  background: rgba(246, 238, 224, 0.96);
+}
+
+.day-column:nth-child(4) {
+  background: rgba(230, 241, 248, 0.96);
+}
+
+.day-column:nth-child(5) {
+  background: rgba(250, 235, 220, 0.96);
+}
+
+.day-column:nth-child(6) {
+  background: rgba(225, 241, 234, 0.96);
+}
+
+.day-column:nth-child(7) {
+  background: rgba(238, 230, 246, 0.96);
+}
+
+.day-column.muted {
+  background: rgba(228, 224, 216, 0.94);
+}
+
+.day-head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.day-head span {
+  color: #64726e;
+  font-size: 13px;
+}
+
+.day-head strong {
+  font-size: 22px;
+}
+
+.blocked,
+.empty {
+  color: #7a8783;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 12px 0;
+}
+
+.blocked.holiday {
+  color: #9a5a13;
+}
+
+.slot {
+  background: #ffffff;
+  border: 1px solid #bfdbd5;
+  border-left: 4px solid #1f6f64;
+  border-radius: 6px;
+  color: #172026;
+  display: grid;
+  gap: 3px;
+  margin-bottom: 8px;
+  min-height: 54px;
+  padding: 8px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.slot:hover {
+  background: #eef8f6;
+}
+
+.slot span,
+.appointment span {
+  color: #64726e;
+  font-size: 12px;
+}
+
+.appointment {
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 40px;
+  padding: 12px;
+}
+
+.config-summary {
+  background: #f7faf9;
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.config-summary span {
+  color: #64726e;
+  font-size: 12px;
+}
+
+.config-summary strong {
+  display: block;
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.config-summary p {
+  color: #52615d;
+  font-size: 13px;
+}
+
+.logic-card {
+  background: #f7faf9;
+  border: 1px solid #dce3df;
+  border-radius: 8px;
+  margin-top: 18px;
+  padding: 14px;
+}
+
+.logic-title {
+  align-items: center;
+  color: #1f6f64;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.logic-card ul {
+  color: #52615d;
+  display: grid;
+  font-size: 13px;
+  gap: 8px;
+  line-height: 1.35;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.mini-stats {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 14px;
+}
+
+.mini-stats span {
+  background: #fff8ee;
+  border: 1px solid #ead0ab;
+  border-radius: 8px;
+  color: #6d5b45;
+  display: grid;
+  font-size: 12px;
+  gap: 3px;
+  min-height: 58px;
+  padding: 10px;
+}
+
+.mini-stats strong {
+  color: #172026;
+  font-size: 18px;
+}
+
+.appointment strong,
+.appointment span {
+  grid-column: 1;
+}
+
+.appointment .icon-button {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.modal-backdrop {
+  align-items: center;
+  background: rgba(23, 32, 38, 0.44);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 8px;
+  display: grid;
+  gap: 16px;
+  max-width: 420px;
+  padding: 22px;
+  position: relative;
+  width: 100%;
+}
+
+.modal p {
+  color: #52615d;
+}
+
+.utc-preview {
+  background: #f1f5f4;
+  border: 1px solid #dce3df;
+  border-radius: 6px;
+  color: #52615d;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.close {
+  align-items: center;
+  background: #edf2f1;
+  border: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  height: 36px;
+  justify-content: center;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 36px;
+}
+
+@media (max-width: 1160px) {
+  .workspace {
+    grid-template-areas:
+      "calendar"
+      "config"
+      "bookings";
+    grid-template-columns: 1fr;
+  }
+
+  .appointments-panel {
+    grid-column: auto;
+  }
+
+  .appointments-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-page {
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 500px);
+    max-width: 1100px;
+  }
+
+  .setup-preview {
+    min-height: 340px;
+    padding: 34px;
+  }
+}
+
+@media (max-width: 820px) {
+  .login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .login-panel,
+  .login-showcase {
+    padding: 28px;
+  }
+
+  .login-showcase h2 {
+    font-size: 30px;
+  }
+
+  .shell {
+    padding: 10px;
+  }
+
+  .admin-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .admin-header h1 {
+    font-size: 28px;
+  }
+
+  .admin-user-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .setup-page {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-config,
+  .setup-preview {
+    order: initial;
+  }
+
+  .calendar-header {
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(7, 132px);
+  }
+
+  .insight-strip {
+    grid-template-columns: repeat(4, 154px);
+  }
+}
