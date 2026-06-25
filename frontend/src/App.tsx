@@ -54,6 +54,11 @@ type LoginResponse = {
 const formatter = (timezone: string, options: Intl.DateTimeFormatOptions) =>
   new Intl.DateTimeFormat("en-US", { timeZone: timezone, ...options });
 
+function apiDate(value: string) {
+  const hasTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/.test(value);
+  return new Date(hasTimezone ? value : `${value}Z`);
+}
+
 function weekStart(date: Date) {
   const copy = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
   const day = copy.getUTCDay() || 7;
@@ -90,11 +95,11 @@ function dateKey(date: Date, timezone: string) {
 }
 
 function timeLabel(value: string, timezone: string) {
-  return formatter(timezone, { hour: "2-digit", minute: "2-digit" }).format(new Date(value));
+  return formatter(timezone, { hour: "2-digit", minute: "2-digit" }).format(apiDate(value));
 }
 
 function dateTimeLabel(value: string, timezone: string) {
-  return formatter(timezone, { month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit", timeZoneName: "short" }).format(new Date(value));
+  return formatter(timezone, { month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit", timeZoneName: "short" }).format(apiDate(value));
 }
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
@@ -507,7 +512,7 @@ export function App() {
               <div className="appointment" key={appointment.id}>
                 <strong>{appointment.lead_name}</strong>
                 <span>
-                  {formatter(config.timezone, { month: "short", day: "2-digit" }).format(new Date(appointment.slot_start))} at {timeLabel(appointment.slot_start, config.timezone)}
+                  {formatter(config.timezone, { month: "short", day: "2-digit" }).format(apiDate(appointment.slot_start))} at {timeLabel(appointment.slot_start, config.timezone)}
                 </span>
                 <button className="icon-button" onClick={() => cancel(appointment.id)} title="Cancel appointment">
                   <Trash2 size={17} />
