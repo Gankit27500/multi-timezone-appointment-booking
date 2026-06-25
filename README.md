@@ -2,6 +2,13 @@
 
 Full-stack implementation for the Lyftr AI appointment booking assignment. It includes a FastAPI + SQLAlchemy backend, SQLite persistence, timezone-aware slot generation, concurrency-safe booking, cancellation, and a React + TypeScript calendar UI.
 
+## Live Demo
+
+- Frontend: https://multi-timezone-appointment-booking.vercel.app
+- Backend API docs: https://multi-timezone-appointment-booking-1.onrender.com/docs
+- Demo email: `admin@lyftr.local`
+- Demo password: `admin123`
+
 ## Features
 
 - Business configuration panel for timezone, hours, active weekdays, slot duration, and holiday exclusions.
@@ -14,6 +21,7 @@ Full-stack implementation for the Lyftr AI appointment booking assignment. It in
 - Booking modal with server-side validation.
 - Cancellation flow that marks appointments as `CANCELLED`.
 - SQLite transaction guard plus a partial unique index to protect exact-slot double bookings.
+- Appointment cards display the selected business timezone while the backend stores timestamps in UTC.
 
 ## Run Locally
 
@@ -72,7 +80,7 @@ Frontend on Vercel:
 - Environment Variable:
   - `VITE_API_URL=https://your-backend-url.onrender.com`
 
-For a production database, use PostgreSQL and set `DATABASE_URL` to the hosted database URL.
+For a production deployment, move from the demo SQLite database to a managed database and update the transaction/index strategy for that database engine.
 
 ## Notes
 
